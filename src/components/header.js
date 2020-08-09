@@ -1,42 +1,54 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React, { useEffect } from "react"
+import netlifyIdentity from 'netlify-identity-widget'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
+const Header = ({ siteTitle }) => {
+  useEffect(() => {
+    netlifyIdentity.init()
+  }, [])
+
+  return (
+    <header
       style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        background: `#2778CE`,
+        marginBottom: `1.45rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
+      <div
+        style={{
+          margin: `auto`,
+          maxWidth: 960,
+          padding: `1.45rem 1.0875rem`,
+          display: `flex`,
+          justifyContent: `space-between`
+        }}
+      >
+        <h1 style={{ margin: 0 }}>
+          <Link
+            to="/"
+            style={{
+              color: `white`,
+              textDecoration: `none`,
+            }}
+          >
+            {siteTitle}
+          </Link>
+        </h1>
+        <button
           style={{
-            color: `white`,
-            textDecoration: `none`,
+            display: 'inline-block',
+            border: `.2rem solid white`,
+            borderRadius: `0.5rem`,
+            background: `white`,
+            color: `#2778ce`
           }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+          onClick={() => netlifyIdentity.open()}>
+          {netlifyIdentity.user ? 'Welcome' : 'Login / Sign Up'}
+        </button>
+        {/* <div data-netlify-identity-menu /> */}
+      </div>
+    </header>
+  )
 }
 
 export default Header
