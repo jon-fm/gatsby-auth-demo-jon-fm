@@ -24,18 +24,24 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div
+      style={{
+        background: 'linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)',
+        height: '100vh'
+      }}
+    >
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
           margin: `0 auto`,
           maxWidth: 960,
           padding: `0 1.0875rem 1.45rem`,
+
         }}
       >
         <main>{children}</main>
       </div>
-    </>
+    </div>
   )
 }
 

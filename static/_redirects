@@ -1,1 +1,10 @@
+# Two-step route-based protection by role
+/admins/*           200!    Role=administrator
+/admins/*    /	    301!
+
+# Two-step route-based protection by role
+/members/*           200!    Role=administrator,member
+/members/*    /	     301!
+
+# Force traffic to assigned domain
 https://gatsby-auth-demo-jon-fm.netlify.app/* https://gatsby-auth.demo.jon.fm/:splat 301!

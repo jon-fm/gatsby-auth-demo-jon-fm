@@ -1,10 +1,12 @@
 import { Link } from "gatsby"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import netlifyIdentity from 'netlify-identity-widget'
 
 const Header = ({ siteTitle }) => {
+  const [currentUser, setCurrentUser] = useState(null)
   useEffect(() => {
     netlifyIdentity.init()
+    setCurrentUser(netlifyIdentity.currentUser())
   }, [])
 
   return (
@@ -40,12 +42,12 @@ const Header = ({ siteTitle }) => {
             border: `.2rem solid white`,
             borderRadius: `0.5rem`,
             background: `white`,
-            color: `#2778ce`
+            color: `#2778ce`,
+            cursor: `pointer`
           }}
           onClick={() => netlifyIdentity.open()}>
-          {netlifyIdentity.user ? 'Welcome' : 'Login / Sign Up'}
+          {currentUser ? `Welcome ${currentUser?.user_metadata?.full_name || "Friend"}` : 'Login / Sign Up'}
         </button>
-        {/* <div data-netlify-identity-menu /> */}
       </div>
     </header>
   )
