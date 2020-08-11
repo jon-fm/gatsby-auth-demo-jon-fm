@@ -1,4 +1,8 @@
-## Netlify Auth Demo (Gatsby Version)
+# Netlify Auth Demo (Gatsby Version)
+
+## This repo is currently in progress -- all notes below are scratch :)
+
+---
 
 (talk a bit about 2-sided routing and protection with _redirects and client-side routing with PWAs)
 
@@ -54,3 +58,6 @@ both are _visible_ by end user
 
 gatsby-auth.demo.jon.fm.admin@jon.fm
 Passw0rd!
+
+
+protected client routes are different than client-only routes
