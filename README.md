@@ -27,13 +27,13 @@ both are _visible_ by end user
   },
   "url": "https://gatsby-auth.demo.jon.fm/.netlify/identity",
   "token": {
-    "access_token": "xyz",
+    "access_token": "xyzxyzxyzxyzxyzxyzxyz",
     "token_type": "bearer",
     "expires_in": 3600,
     "refresh_token": "xyz",
     "expires_at": 1596984429000
   },
-  "id": "xyz",
+  "id": "xyzxyzxyzxyzxyzxyzxyzxyz",
   "aud": "",
   "role": "",
   "email": "gatsby-auth.demo.jon.fm.admin@jon.fm",
